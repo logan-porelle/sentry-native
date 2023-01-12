@@ -36,7 +36,12 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
+      
+    - name: Installing Linux Dependencies
+      run: |
+        sudo apt update
+        sudo apt install cmake clang-14 clang-tools llvm kcov g++-12 valgrind zlib1g-dev libcurl4-openssl-dev
+        
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
