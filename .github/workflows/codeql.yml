@@ -57,8 +57,26 @@ jobs:
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+    - name: Build & Test
+      uses: ashutoshvarma/action-cmake-build@master
+      with:
+        build-dir: .
+        # will set the CC & CXX for cmake
+        cc: gcc
+        cxx: g++
+        build-type: RelWithDebInfo
+        # Extra options pass to cmake while configuring project
+        configure-options: -DCMAKE_C_FLAGS=-w32 -DPNG_INCLUDE=OFF
+        run-test: false
+        #ctest-options: -R mytest
+        # install the build using cmake --install
+        #install-build: true
+        # run build using '-j [parallel]' to use multiple threads to build
+        #parallel: 14
+   
+   
+   #- name: Autobuild
+    #  uses: github/codeql-action/autobuild@v2
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
