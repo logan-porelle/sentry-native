@@ -62,11 +62,11 @@ jobs:
       with:
         build-dir: .
         # will set the CC & CXX for cmake
-        cc: gcc
-        cxx: g++
+        cc: gcc-12
+        cxx: g++-12
         build-type: RelWithDebInfo
         # Extra options pass to cmake while configuring project
-        configure-options: -DCMAKE_C_FLAGS=-w32 -DPNG_INCLUDE=OFF
+        #configure-options: -DCMAKE_C_FLAGS=-w32 -DPNG_INCLUDE=OFF
         run-test: false
         #ctest-options: -R mytest
         # install the build using cmake --install
