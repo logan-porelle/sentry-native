@@ -37,11 +37,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       
-   # - name: Installing Linux Dependencies
-    #  if: ${{ matrix.language=='cpp' }}
-     # run: |
-     #   sudo apt update
-      #  sudo apt install cmake clang-14 clang-tools llvm kcov g++-12 valgrind zlib1g-dev libcurl4-openssl-dev
+    - name: Installing Linux Dependencies
+      if: ${{ matrix.language=='cpp' }}
+      run: |
+        sudo apt update
+        sudo apt install cmake llvm g++-12 zlib1g-dev
         
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
